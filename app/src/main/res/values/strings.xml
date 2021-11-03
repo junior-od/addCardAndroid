@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">AddCardApp</string>
+    <string name="crypto_wallet">Crypto wallet</string>
+    <string name="man">man</string>
+    <string name="notification">notification</string>
+    <string name="avaliable_balance">Available balance</string>
+    <string name="_45_344_45">$45,344,434,434.45</string>
+    <string name="my_cards">My cards</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add">add</string>
+    <string name="add_new_cards">Add new cards</string>
+</resources>
