@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/relativeLayout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/blue_cornered_bg"
+    android:layout_marginStart="@dimen/_10sdp"
+    android:layout_width="@dimen/_250sdp"
+    android:layout_height="@dimen/_150sdp"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/balanceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_10ssp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/roboto_regular"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:text="@string/balance"/>
+
+    <TextView
+        android:layout_below="@+id/balanceText"
+        android:id="@+id/balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_14ssp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/roboto_bold"
+        android:layout_marginStart="@dimen/_10sdp"
+        tools:text="@string/_45_344_45"/>
+
+    <TextView
+        android:id="@+id/cardNumber"
+        tools:text="**** 6666"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:textSize="@dimen/_14ssp"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"/>
+
+    <ImageView
+        android:id="@+id/cardTypeImage"
+        android:layout_width="@dimen/_60sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:src="@drawable/ic_visa_2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        />
+
+    <TextView
+        android:id="@+id/cardExpiry"
+        tools:text="12/32"
+        android:layout_marginBottom="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:textSize="@dimen/_14ssp"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

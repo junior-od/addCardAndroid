@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.addcardapp.customviews.TopShadowLinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomNavLinearLayout"
+    android:baselineAligned="false"
+    android:orientation="horizontal"
+    android:layout_marginBottom="@dimen/_30sdp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/home"
+        android:layout_width="0dp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_weight="1"
+        tools:ignore="UnusedAttribute">
+
+        <ImageView
+            android:id="@+id/homeIcon"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/home_icon"
+            android:src="@drawable/ic_home" />
+
+        <TextView
+            android:id="@+id/homeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/homeIcon"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/roboto_regular"
+            android:singleLine="true"
+            android:text="@string/home"
+            android:textColor="@color/colorgrey"
+            android:textSize="@dimen/_8ssp"
+            tools:ignore="SmallSp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/_5sdp"
+        android:id="@+id/wallet"
+        android:layout_width="0dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:ignore="UnusedAttribute">
+
+        <ImageView
+            android:id="@+id/walletIcon"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/wallet_icon"
+            android:src="@drawable/ic_wallet" />
+
+        <TextView
+            android:id="@+id/walletText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_below="@+id/walletIcon"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/roboto_regular"
+            android:singleLine="true"
+            android:text="@string/wallet"
+            android:textColor="@color/colorgrey"
+            android:textSize="@dimen/_8ssp"
+            tools:ignore="SmallSp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/_5sdp"
+        android:id="@+id/space"
+        android:layout_width="0dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:ignore="UnusedAttribute" />
+
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/_5sdp"
+        android:id="@+id/history"
+        android:layout_width="0dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:ignore="UnusedAttribute">
+
+        <ImageView
+            android:id="@+id/historyIcon"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/history_ic"
+            android:src="@drawable/ic_history" />
+
+        <TextView
+            android:id="@+id/historyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_below="@+id/historyIcon"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/history"
+            android:singleLine="true"
+            android:textColor="@color/colorgrey"
+            android:textSize="@dimen/_8ssp"
+            tools:ignore="SmallSp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="@dimen/_5sdp"
+        android:id="@+id/market"
+        android:layout_width="0dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        tools:ignore="UnusedAttribute">
+
+        <ImageView
+            android:id="@+id/profileIcon"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/market_icon"
+            android:src="@drawable/ic_chart" />
+
+        <TextView
+            android:id="@+id/profileText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_below="@+id/profileIcon"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/roboto_regular"
+            android:text="@string/market"
+            android:singleLine="true"
+            android:textColor="@color/colorgrey"
+            android:textSize="@dimen/_8ssp"
+            tools:ignore="SmallSp" />
+
+    </RelativeLayout>
+
+</com.example.addcardapp.customviews.TopShadowLinearLayout>

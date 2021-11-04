@@ -1,16 +1,18 @@
 package com.example.addcardapp
 
-import android.animation.ValueAnimator
 import android.os.Bundle
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager.widget.ViewPager
 import com.example.addcardapp.databinding.ActivityMainBinding
-import com.example.addcardapp.utils.Helper
+import com.example.addcardapp.fragments.DashboardFragment
+import com.example.addcardapp.viewpager.AddCardViewPagerAdapter
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding : ActivityMainBinding
+    private var addCardViewPagerAdapter : AddCardViewPagerAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,24 +21,15 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.hide()
 
         val aniSlide: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.slide_up)
-        binding.addCardLayout.startAnimation(aniSlide);
+        val aniSlideDelayed: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.slide_up_delayed)
 
-        animateBalance(40332233)
+        addCardViewPagerAdapter = AddCardViewPagerAdapter(supportFragmentManager)
+        addCardViewPagerAdapter?.addFragment(DashboardFragment(), "")
+        binding.viewPager.adapter = addCardViewPagerAdapter
+        binding.viewPager.offscreenPageLimit = addCardViewPagerAdapter?.count!!
 
-    }
-
-    private fun animateBalance(newbalance: Int) {
-        val animator = ValueAnimator()
-        animator.setObjectValues(0, newbalance)
-        animator.addUpdateListener {
-
-            binding.availableBalance.text = Helper.DontTrimCurrencyDecimalAndAttachCountrySymbol(
-                it.animatedValue.toString()
-            )
-        }
-        animator.duration = 2000 // here you set the duration of the anim
-
-        animator.start()
+        binding.bottomNavigationLayout.startAnimation(aniSlide)
+        binding.fabIc.startAnimation((aniSlideDelayed))
 
 
     }

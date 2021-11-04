@@ -10,10 +10,10 @@
     <RelativeLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_marginBottom="@dimen/_100sdp">
+        android:layout_marginBottom="@dimen/_150sdp">
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_height="@dimen/_230sdp"
+            android:layout_height="@dimen/_200sdp"
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:background="@color/purple_700">
@@ -25,8 +25,8 @@
                 android:layout_marginBottom="@dimen/_20sdp">
                 <ImageView
                     android:id="@+id/backIcon"
-                    android:layout_height="@dimen/_40sdp"
-                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_width="@dimen/_30sdp"
                     android:layout_marginStart="@dimen/_10sdp"
                     android:src="@drawable/man"
                     android:contentDescription="@string/man"
@@ -54,8 +54,8 @@
 
                     <ImageView
                         android:id="@+id/notification"
-                        android:layout_width="@dimen/_30sdp"
-                        android:layout_height="@dimen/_30sdp"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
                         android:layout_alignParentStart="true"
                         android:src="@drawable/ic_notification_bell"
                         android:layout_centerVertical="true"
@@ -65,10 +65,10 @@
                     <FrameLayout
                         android:id="@+id/frameLayout"
                         android:background="@drawable/circle_red"
-                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_3sdp"
                         android:layout_alignEnd="@+id/notification"
-                        android:layout_width="@dimen/_10sdp"
-                        android:layout_height="@dimen/_10sdp">
+                        android:layout_width="@dimen/_7sdp"
+                        android:layout_height="@dimen/_7sdp">
 
                     </FrameLayout>
 
@@ -80,7 +80,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_12ssp"
-                android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:fontFamily="@font/roboto_regular"
                 android:textColor="@color/whitishColor"
@@ -100,7 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/_12ssp"
-                android:layout_marginTop="@dimen/_30sdp"
+                android:layout_marginTop="@dimen/_15sdp"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:fontFamily="@font/roboto_medium"
                 android:textColor="@color/white"
@@ -108,9 +107,21 @@
 
         </LinearLayout>
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:overScrollMode="never"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_160sdp"
+            android:scrollbars="none"
+            tools:itemCount="2"
+            tools:listitem="@layout/single_credit_card_layout"
+            android:id="@+id/cardRecyclerView"
+            />
+
         <RelativeLayout
             android:layout_marginTop="@dimen/_20sdp"
-            android:layout_below="@+id/linearLayout"
+            android:layout_below="@+id/cardRecyclerView"
             android:layout_marginStart="@dimen/_10sdp"
             android:layout_marginEnd="@dimen/_10sdp"
             android:id="@+id/addCardLayout"
