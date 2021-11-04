@@ -1,16 +1,18 @@
 package com.example.addcardapp.fragments
 
 import android.animation.ValueAnimator
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.addcardapp.AddCardActivity
 import com.example.addcardapp.R
+import com.example.addcardapp.SuccessActivity
 import com.example.addcardapp.adapter.CardRecyclerAdapter
 import com.example.addcardapp.models.CardDetails
 import com.example.addcardapp.utils.Helper
@@ -51,6 +53,10 @@ class DashboardFragment : Fragment() {
         addCardLayout.startAnimation(aniSlide)
 
         animateBalance(400030333)
+
+        addCardLayout.setOnClickListener {
+            startActivity(Intent(requireActivity(), AddCardActivity::class.java))
+        }
     }
 
     private fun animateBalance(newbalance: Int) {

@@ -10,5 +10,7 @@
     <color name="whitishColor">#C1BBF2</color>
     <color name="shadowblack">#26000000</color>
     <color name="colorgrey">#B7B9C0</color>
+    <color name="colorgreyshadow">#7AEDECF4</color>
+    <color name="colorGreen">#10C48F</color>
 
 </resources>

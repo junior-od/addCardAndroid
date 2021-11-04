@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent"
+        tools:context=".SuccessActivity">
+
+        <com.example.addcardapp.customviews.ShadowLinearLayout
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:id="@+id/linearLayout"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/successLottie"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:lottie_speed="1"
+                app:lottie_loop="false"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="success.json" />
+
+            <TextView
+                android:id="@+id/congratulationText"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:text="@string/congratulations"
+                android:textSize="@dimen/_18ssp"
+                android:textColor="@color/colorGreen"
+                android:fontFamily="@font/roboto_bold"
+                />
+
+            <TextView
+                android:id="@+id/yourCardText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:textSize="@dimen/_12ssp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/your_card_has_been_added_successfully"
+                />
+
+        </com.example.addcardapp.customviews.ShadowLinearLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_below="@+id/linearLayout"
+            android:id="@+id/backWalletLayout"
+            android:background="#03D4EE"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp">
+
+            <TextView
+                android:id="@+id/backToWalletText"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/back_to_wallet"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_regular"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</layout>
