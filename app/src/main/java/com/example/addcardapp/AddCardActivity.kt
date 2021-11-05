@@ -2,6 +2,7 @@ package com.example.addcardapp
 
 import android.animation.AnimatorInflater
 import android.animation.AnimatorSet
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -31,20 +32,8 @@ class AddCardActivity : AppCompatActivity() {
     private var mLength = 0
 
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityAddCardBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        supportActionBar?.hide()
-
-        val aniSlide: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.slide_up_400)
-
-        binding.cardNumberInputLayout.startAnimation(aniSlide)
-
-        binding.rootLayout.setOnClickListener {
-            Helper.hideSoftKeyboard(this)
-        }
+    override fun onResume() {
+        super.onResume()
 
         val scale = resources.displayMetrics.density
         val cameraDist = 8000 * scale
@@ -61,6 +50,26 @@ class AddCardActivity : AppCompatActivity() {
         frontPushDownFlip.setTarget(relativeLayout)
         frontPushUpFlip.start()
         frontPushDownFlip.start()
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityAddCardBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        supportActionBar?.hide()
+
+        val aniSlide: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.slide_up_400)
+        val aniSlideDelay : Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.slide_up_delayed)
+
+        binding.backIcon.setOnClickListener {
+            onBackPressed()
+        }
+
+        binding.cardNumberInputLayout.startAnimation(aniSlide)
+
+        binding.rootLayout.setOnClickListener {
+            Helper.hideSoftKeyboard(this)
+        }
 
 
         binding.cardNumberInput.addTextChangedListener( object : TextWatcher{
@@ -156,10 +165,10 @@ class AddCardActivity : AppCompatActivity() {
 
                 if(currentLength == 5){
                     Helper.hideSoftKeyboard(this@AddCardActivity)
-                    binding.cardExpiryInputLayout.visibility = View.GONE
-                    binding.cardCVVInputLayout.startAnimation(aniSlide)
-                    binding.cardCVVInputLayout.visibility = View.VISIBLE
                     flip()
+                    binding.cardExpiryInputLayout.visibility = View.GONE
+                    binding.cardCvvInputLayout.startAnimation(aniSlide)
+                    binding.cardCvvInputLayout.visibility = View.VISIBLE
                 }
 
 
@@ -180,6 +189,7 @@ class AddCardActivity : AppCompatActivity() {
             override fun afterTextChanged(p0: Editable?) {
 
                 binding.cardHolderName.text = p0
+                binding.cardHolderNameBack.text = p0
 
             }
 
@@ -196,6 +206,53 @@ class AddCardActivity : AppCompatActivity() {
             }
 
             false
+        }
+
+        binding.cardCvvInput.addTextChangedListener(object : TextWatcher{
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                binding.cvv.text = p0.toString()
+                if (binding.cardCvvInput.text?.length == 3){
+                    Helper.hideSoftKeyboard(this@AddCardActivity)
+                    flip()
+
+                    binding.cardNumberInputLayout.alpha = 0f
+                    binding.cardHolderInputLayout.alpha = 0f
+                    binding.cardExpiryInputLayout.alpha = 0f
+                    binding.cardCvvInputLayout.alpha = 0f
+
+                    binding.cardNumberInputLayout.visibility = View.GONE
+                    binding.cardHolderInputLayout.visibility = View.GONE
+                    binding.cardExpiryInputLayout.visibility = View.GONE
+                    binding.cardCvvInputLayout.visibility = View.GONE
+
+                    binding.addCardLayout.startAnimation(aniSlide)
+                    binding.cancelLayout.startAnimation(aniSlide)
+                    binding.addCardText.startAnimation(aniSlideDelay)
+                    binding.cancelText.startAnimation(aniSlideDelay)
+                    binding.addCardLayout.visibility = View.VISIBLE
+                    binding.cancelLayout.visibility = View.VISIBLE
+
+
+                }
+            }
+
+        })
+
+        binding.addCardLayout.setOnClickListener {
+            startActivity(Intent(this, SuccessActivity::class.java))
+            finish()
+        }
+
+        binding.cancelLayout.setOnClickListener {
+            finish()
         }
     }
 
@@ -225,5 +282,10 @@ class AddCardActivity : AppCompatActivity() {
             frontFlipAnim.start()
             true
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        Helper.hideSoftKeyboard(this)
     }
 }

@@ -27,4 +27,7 @@
     <string name="valid_till">VALID TILL</string>
     <string name="card_number">CARD NUMBER</string>
     <string name="cvv">CVV</string>
+    <string name="add_card">Add card</string>
+    <string name="cancel">Cancel</string>
+    <string name="add_new_card">Add new card</string>
 </resources>

@@ -11,6 +11,32 @@
         android:orientation="vertical"
         tools:context=".AddCardActivity">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp">
+            <ImageView
+                android:id="@+id/backIcon"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:src="@drawable/ic_back"
+                android:contentDescription="@string/man"
+                />
+
+            <TextView
+                android:id="@+id/cryptoWalletText"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:textSize="@dimen/_14ssp"
+                android:fontFamily="@font/roboto_regular"
+                android:text="@string/add_new_card"
+                android:layout_centerInParent="true"
+                android:textColor="@color/black"
+                />
+
+        </RelativeLayout>
+
 
         <RelativeLayout
             android:id="@+id/relativeLayout"
@@ -133,7 +159,7 @@
             <RelativeLayout
                 android:id="@+id/backCardRelativeLayout"
                 xmlns:android="http://schemas.android.com/apk/res/android"
-                android:background="@drawable/light_blue_cornered_bg"
+                android:background="@drawable/blue_cornered_bg"
                 android:layout_marginStart="@dimen/_10sdp"
                 android:layout_marginEnd="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_20sdp"
@@ -141,6 +167,92 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_150sdp"
                 xmlns:tools="http://schemas.android.com/tools">
+
+                <View
+                    android:id="@+id/blackView"
+                    android:background="@color/black"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"/>
+
+                <LinearLayout
+                    android:layout_below="@+id/blackView"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:background="@color/white"
+                    android:weightSum="1"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_height="@dimen/_30sdp">
+
+                    <LinearLayout
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_weight="0.8"
+                        android:orientation="vertical">
+
+                        <View
+                            android:background="@color/colorgrey"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"/>
+                        <View
+                            android:background="@color/colorgrey"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"/>
+                        <View
+                            android:background="@color/colorgrey"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"/>
+                        <View
+                            android:background="@color/colorgrey"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"/>
+                        <View
+                            android:background="@color/colorgrey"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"/>
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:background="@color/colorgrey"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.2">
+
+                        <TextView
+                            android:id="@+id/cvv"
+                            android:layout_centerInParent="true"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/_14ssp"
+                            android:textColor="@color/black"
+                            android:fontFamily="@font/roboto_regular"/>
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/cardHolderNameBack"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/_14ssp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textColor="@color/white"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    />
 
 
 
@@ -248,7 +360,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/cardCVVInputLayout"
+            android:id="@+id/cardCvvInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/_10sdp"
@@ -266,10 +378,10 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/cardCVVInput"
+                android:id="@+id/cardCvvInput"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_50sdp"
-                android:maxLength="3"
+                android:maxLength="5"
                 android:inputType="number"
                 android:background="@drawable/input_cornerd_bg"
                 android:textColor="@color/black"
@@ -279,6 +391,54 @@
                 />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:id="@+id/addCardLayout"
+            android:visibility="gone"
+            android:background="#03D4EE"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp">
+
+            <TextView
+                android:id="@+id/addCardText"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/add_card"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_regular"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:id="@+id/cancelLayout"
+            android:visibility="gone"
+            android:background="@drawable/input_cornerd_bg"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp">
+
+            <TextView
+                android:id="@+id/cancelText"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/cancel"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/_12ssp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/roboto_regular"
+                />
+
+        </RelativeLayout>
 
 
 
