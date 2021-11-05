@@ -31,6 +31,20 @@ class DashboardFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_dashboard, container, false)
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        val aniSlide: Animation = AnimationUtils.loadAnimation(context, R.anim.slide_up)
+        val aniSlideLeft: Animation = AnimationUtils.loadAnimation(context, R.anim.slide_left)
+
+        cardRecyclerView.startAnimation(aniSlideLeft)
+
+        addCardLayout.startAnimation(aniSlide)
+
+        animateBalance(400030333)
+
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -45,14 +59,14 @@ class DashboardFragment : Fragment() {
         cardRecyclerAdapter = CardRecyclerAdapter(dataList)
         cardRecyclerView?.adapter =  cardRecyclerAdapter
 
-        val aniSlide: Animation = AnimationUtils.loadAnimation(context, R.anim.slide_up)
-        val aniSlideLeft: Animation = AnimationUtils.loadAnimation(context, R.anim.slide_left)
-
-        cardRecyclerView.startAnimation(aniSlideLeft)
-
-        addCardLayout.startAnimation(aniSlide)
-
-        animateBalance(400030333)
+//        val aniSlide: Animation = AnimationUtils.loadAnimation(context, R.anim.slide_up)
+//        val aniSlideLeft: Animation = AnimationUtils.loadAnimation(context, R.anim.slide_left)
+//
+//        cardRecyclerView.startAnimation(aniSlideLeft)
+//
+//        addCardLayout.startAnimation(aniSlide)
+//
+//        animateBalance(400030333)
 
         addCardLayout.setOnClickListener {
             startActivity(Intent(requireActivity(), AddCardActivity::class.java))

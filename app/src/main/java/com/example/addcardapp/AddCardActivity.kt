@@ -46,8 +46,8 @@ class AddCardActivity : AppCompatActivity() {
         frontPushUpFlip = AnimatorInflater.loadAnimator(applicationContext, R.animator.flip_down) as AnimatorSet
         frontPushDownFlip = AnimatorInflater.loadAnimator(applicationContext, R.animator.flip_up) as AnimatorSet
 
-        frontPushUpFlip.setTarget(relativeLayout)
-        frontPushDownFlip.setTarget(relativeLayout)
+        frontPushUpFlip.setTarget(binding.frontCardRelativeLayout)
+        frontPushDownFlip.setTarget(binding.frontCardRelativeLayout)
         frontPushUpFlip.start()
         frontPushDownFlip.start()
     }
